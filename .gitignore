@@ -1,5 +1,10 @@
 build/
 .idea/
+3rdparty/doc/
+3rdparty/sandbox/
+3rdparty/scripts/
+3rdparty/unittests/
+3rdparty/vs2013/
 
 # Executables
 *.exe
