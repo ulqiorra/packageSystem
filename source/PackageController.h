@@ -11,7 +11,7 @@
 // representation of PackageController
 class PackageController {
 public:
-    explicit PackageController();
+    PackageController();
     ~PackageController() = default;
 
     void getInput(std::istream&);

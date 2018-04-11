@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
 project(packageSystem)
 
-include_directories(../packageSystem/3rdparty)
+include_directories(../packageSystem/3rdparty/include)
 
 set(CMAKE_CXX_STANDARD 11)
 set(dir ${CMAKE_CURRENT_SOURCE_DIR})

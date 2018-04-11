@@ -1,5 +1,8 @@
 #include <algorithm>
-#include <iostream>
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/string.hpp>
+#include <cereal/types/vector.hpp>
+#include <cereal/types/memory.hpp>
 #include "Package.h"
 
 using namespace std;
@@ -115,4 +118,25 @@ void Package::getChildsNames(vector<string> &v)
         v.push_back(i->getName());
         i->getChildsNames(v);
     }
+}
+
+// function to show cereal which data members to serialize
+template <class Archive>
+void Package::serialize(Archive & ar)
+{
+    ar(name, childs);
+}
+
+// function to SAVE current Package to the incoming std::stringstream
+void Package::savePack(std::stringstream &in)
+{
+    cereal::BinaryOutputArchive oarchive(in);
+    oarchive(name, childs);
+}
+
+// function to LOAD data from the incoming std::stringstream to current Package
+void Package::loadPack(std::stringstream &out)
+{
+    cereal::BinaryInputArchive iarchive(out);
+    iarchive(name, childs);
 }
